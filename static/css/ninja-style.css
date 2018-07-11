@@ -1,0 +1,30 @@
+.ninja-container{
+  display: block;
+}
+.farm-box{
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+}
+.cave-box{
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+}
+.house-box{
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+}
+.casino-box{
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+}
+
+.green{
+  color: green;
+}
+.red{
+  color: red;
+}

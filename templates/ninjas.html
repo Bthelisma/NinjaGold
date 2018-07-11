@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ninja Money</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/ninja-style.css') }}">
+  </head>
+  <body>
+
+    <p><strong>Your Gold:</strong>{{session['totalGoldCount']}}</p>
+
+    <div class="ninja-container">
+
+      <div class="farm-box">
+        <h4>Farm</h4>
+        <p>(earns 10-20 golds)</p>
+        <!-- {{session['farm']}} -->
+        <form action="/process_money" method="post">
+          <input type="hidden" name="building" value="farm">
+          <input type="submit" value="Find Gold!">
+        </form>
+      </div>
+
+      <div class="cave-box">
+        <h4>Cave</h4>
+        <p>(earns 5-10 golds)</p>
+        <form action="/process_money" method="post">
+          <input type="hidden" name="building" value="cave">
+          <input type="submit" value="Find Gold!">
+        </form>
+      </div>
+
+      <div class="house-box">
+        <h4>House</h4>
+        <p>(earns 2-5 golds)</p>
+        <form action="/process_money" method="post">
+          <input type="hidden" name="building" value="house" />
+          <input type="submit" value="Find Gold!"/>
+        </form>
+      </div>
+
+      <div class="casino-box">
+        <h4>Casino</h4>
+        <p>(earns/takes 0-50 golds)</p>
+        <form action="/process_money" method="post">
+          <input type="hidden" name="building" value="casino" />
+          <input type="submit" value="Find Gold!"/>
+        </form>
+      </div>
+
+    </div>
+    <br><hr><br>
+    <div class="activities-container">
+          <label for="activity results">Activities</label>
+          <div class="activities">
+            {% for someActivity in session.activities [::-1]%}
+            {% if someActivity.find('lost') == -1 %}
+            <p class="green">
+              {{ someActivity }}
+            </p>
+            {% else %}
+            <p class="red">
+              {{ someActivity }}
+            </p>
+            {%endif%}
+            {%endfor%}
+
+        </div>
+
+
+  </body>
+</html>
